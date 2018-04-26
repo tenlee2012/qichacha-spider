@@ -8,3 +8,9 @@
 docker-compose build
 docker stack deploy -c docker-compose.yml qichacha-spider
 ```
+
+redis 
+```
+select 2
+lpush qichacha:start_urls 'http://www.qichacha.com'
+```

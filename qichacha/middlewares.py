@@ -7,7 +7,7 @@
 
 from scrapy import signals
 import random
-from .settings import PROXIES
+from qichacha.config.settings import PROXIES
 import base64
 
 

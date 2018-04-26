@@ -5,7 +5,7 @@ import scrapy
 from scrapy.spidermiddlewares.httperror import HttpError
 from scrapy_redis.spiders import RedisSpider
 from twisted.internet.error import DNSLookupError, TCPTimedOutError
-from ..settings import LOG_DIR
+from qichacha.config.settings import LOG_DIR
 import uuid
 
 from ..items import parse_response
