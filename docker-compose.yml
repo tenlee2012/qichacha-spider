@@ -1,0 +1,9 @@
+version: "3"
+services:
+  crawler:
+    image: registry.cn-hangzhou.aliyuncs.com/ziyitong/crawl:qichacha-spider
+    volumes:
+     - /data:/data
+    build: .
+    deploy:
+      replicas: 5

@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+scrapy = "*"
+scrapy-redis = "*"
+pymongo = "*"
+python-json-logger = "*"
+structlog = "*"
+flask = "*"
+redis = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"

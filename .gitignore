@@ -1,0 +1,4 @@
+*.pyc
+.idea/*
+*.iml
+.Db_Store
