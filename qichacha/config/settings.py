@@ -11,6 +11,7 @@
 
 import os
 import logging
+import redis
 from scrapy.utils.log import configure_logging
 
 env = os.getenv('ENV')
@@ -28,10 +29,16 @@ BOT_NAME = 'qichacha'
 SPIDER_MODULES = ['qichacha.spiders']
 NEWSPIDER_MODULE = 'qichacha.spiders'
 
-#  启用Redis调度存储请求队列
-SCHEDULER = "scrapy_redis.scheduler.Scheduler"
-#  确保所有的爬虫通过Redis去重
-DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+KAFKA_BOOTSTRAP_SERVERS=['127.0.0.1:9092']
+# 启用Kafka调度存储请求队列
+SCHEDULER = "scrapy_kafka_redis.scheduler.Scheduler"
+
+REDIS_CLS = redis.StrictRedis
+REDIS_URL = 'redis://localhost:6378/1'
+
+# 使用BloomFilter作为去重队列
+DUPEFILTER_CLASS = "scrapy_kafka_redis.dupefilter.BloomFilter"
+
 #  不清除Redis队列、这样可以暂停/恢复 爬取
 SCHEDULER_PERSIST = True
 

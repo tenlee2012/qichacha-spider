@@ -3,5 +3,4 @@ pymongo==3.6.1
 python-json-logger==0.1.8
 structlog==18.1.0
 flask==0.12.2
-redis
-scrapy-redis
+scrapy-kafka-redis==0.0.7
